@@ -1,7 +1,7 @@
 import React from 'react'
 import Logo from './Logo'
-import { Button } from './ui/button'
 import DarkModeToggle from './DarkModeToggle';
+import UserButton from './UserButton';
 
 function Header() {
   return (
@@ -17,7 +17,7 @@ function Header() {
           )*/}
 
           <DarkModeToggle />
-          {/* UserButton */}
+          <UserButton />
         </div>
       </nav>
 
