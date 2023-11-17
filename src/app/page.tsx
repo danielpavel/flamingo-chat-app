@@ -2,8 +2,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import Logo from '@logos/flamingo_logo.png'
+import { ArrowRight } from 'lucide-react';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/auth';
 
-export default function Home() {
+export default async function Home() {
+  const session = await getServerSession(authOptions);
+
+  console.log(session);
+
   return (
     <main className="">
       <div className="relative isolate pt-14 dark:bg-gray-900">
@@ -42,9 +49,12 @@ export default function Home() {
               </Link>
               <Link
                 href="/pricing"
-                className="text-sm font-semibold leading-6 Otext-gray-900 dark:text-gray-300"
+                className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300"
               >
-                View Pricing <span aria-hidden="true">-</span>
+                <div className='flex items-center gap-1 flex-row'>
+                  View Pricing
+                  <ArrowRight size={'14'}/>
+                </div>
               </Link>
             </div>
 
