@@ -21,7 +21,7 @@
     "paths": {
       "@/*": ["./*"],
       "@logos/*": ["./images/logos/*"],
-      "@components/*": ["./src/components/*"],
+      "@/components/*": ["./src/components/*"],
       "@/auth": ["./auth.ts"],
     }
   },
