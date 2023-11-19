@@ -1,11 +1,25 @@
+import ChatList from '@/src/components/ChatList'
 import React from 'react'
 
-function ChatsPage() {
-  return (
-    { /* <ChatPermissionError /> */ }
+type Props = {
+  params: {};
+  searchParams: {
+    error: string;
+  };
+};
 
-    { /* <ChatList /> */ }
-  )
+function ChatsPage({ params, searchParams }: Props) {
+  console.log('ChatsPage');
+
+  return (
+    <div>
+      {/* <ChatPermissionError /> */}
+
+      Chat Page
+
+      <ChatList />
+    </div>
+  );
 }
 
 export default ChatsPage

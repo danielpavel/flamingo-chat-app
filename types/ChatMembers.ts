@@ -2,7 +2,7 @@ export interface ChatMembers {
   userId: string;
   email: string;
   timestamp: Date | null;
-  isAdmin: string;
+  isAdmin: boolean;
   chatId: string;
   image: string;
 }
