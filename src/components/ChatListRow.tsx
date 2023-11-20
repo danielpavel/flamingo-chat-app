@@ -20,15 +20,15 @@ function ChatListRow({chatId}: {chatId: string}) {
     return chatId.substring(0, n);
   }
 
-  const row = (message: Message) => (
+  const row = (message?: Message) => (
     <div
       key={chatId}
       onClick={() => router.push(`/chat/${chatId}`)}
       className="flex p-5 items-center cursor-pointer space-x-2 hover:bg-gray-100 dark:bg-slate-700"
     >
       <UserAvatar
-        name={message.user.name || session?.user.name}
-        image={message.user.image || session?.user.image}
+        name={message?.user.name || session?.user.name}
+        image={message?.user.image || session?.user.image}
       />
 
       <div className="flex-1">
@@ -39,7 +39,7 @@ function ChatListRow({chatId}: {chatId: string}) {
         </p>
 
         <p className="text-gray-400 line-clamp-1">
-          {message.translated?.["en"] || "Get the conversation started"}
+          {message?.translated?.["en"] || "Get the conversation started"}
         </p>
       </div>
 
@@ -65,6 +65,10 @@ function ChatListRow({chatId}: {chatId: string}) {
           </div>
         </div>
       )}
+
+      {messages?.length === 0 && !loading && row()}
+
+      {messages && messages.map((message) => row(message))}
     </div>
   );
 }

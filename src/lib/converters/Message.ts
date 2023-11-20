@@ -6,7 +6,6 @@ import { FirestoreDataConverter, QueryDocumentSnapshot, SnapshotOptions, collect
 const messageConverter: FirestoreDataConverter<Message> = {
   toFirestore: function (message: Message): DocumentData {
     return {
-      id: message.id,
       input: message.input,
       timestamp: message.timestamp,
       user: message.user,
@@ -43,4 +42,4 @@ export const sortedMessagesRef = (chatId: string) =>
   query(messagesRef(chatId), orderBy("timestamp", "asc"));
 
 export const limitedSortedMessagesRef = (chatId: string) =>
-  query(limitedMessagesRef(chatId), orderBy("timestamp", "asc"));
+  query(query(limitedMessagesRef(chatId), limit(1)), orderBy("timestamp", "desc"));

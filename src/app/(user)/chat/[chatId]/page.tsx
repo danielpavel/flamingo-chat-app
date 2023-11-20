@@ -1,6 +1,15 @@
+import { authOptions } from '@/auth'
+import ChatInput from '@/src/components/ChatInput';
+import { getServerSession } from 'next-auth'
 import React from 'react'
 
-function page() {
+type Props = {
+  params: { chatId: string };
+};
+
+async function page({params: { chatId }}: Props) {
+  const session = await getServerSession(authOptions);
+
   return (
     <>
       { /* <AdminControls /> */ }
@@ -9,7 +18,7 @@ function page() {
 
       { /* <ChatMessages /> */ }
 
-      { /* <ChatInput /> */ }
+      <ChatInput chatId={chatId}/>
     </>
   )
 }
