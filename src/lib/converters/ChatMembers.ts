@@ -11,7 +11,7 @@ const chatMembersConverter: FirestoreDataConverter<ChatMembers> = {
       timestamp: chatMember.timestamp,
       isAdmin: !!chatMember.isAdmin,
       chatId: chatMember.chatId,
-      image: chatMember.chatId,
+      image: chatMember.image,
     };
   },
 
@@ -44,7 +44,7 @@ export const chatMembersRef = (chatId: string) =>
     chatMembersConverter
   );
 
-export const chatMemberAdminRef = (chatId: string, userId: string) =>
+export const chatMemberAdminRef = (chatId: string) =>
   query(
     collection(db, "chats", chatId, "members"),
     where("isAdmin", "==", true)
