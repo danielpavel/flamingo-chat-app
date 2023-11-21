@@ -1,4 +1,5 @@
 import { authOptions } from "@/auth";
+import AdminControls from "@/src/components/AdminControls";
 import ChatInput from "@/src/components/ChatInput";
 import ChatMembersBadges from "@/src/components/ChatMembersBadges";
 import ChatMessages from "@/src/components/ChatMessages";
@@ -20,7 +21,7 @@ async function page({ params: { chatId } }: Props) {
 
   return (
     <>
-      {/* <AdminControls /> */}
+      <AdminControls chatId={chatId}/>
 
       <ChatMembersBadges chatId={chatId} />
 

@@ -18,9 +18,6 @@ function ChatMembersBadges({ chatId }: { chatId: string }) {
 
   if (loading && !members) return <LoadingSpinner />
 
-  console.log('[adminId]', adminId);
-  console.log('[userid]', members?.[0].userId);
-
   return (
     !loading && (
       <div className="p-2 border rounded-xl m-5">
